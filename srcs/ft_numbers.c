@@ -6,9 +6,24 @@
 /*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 07:58:43 by k                 #+#    #+#             */
-/*   Updated: 2023/09/26 08:00:00 by k                ###   ########.fr       */
+/*   Updated: 2023/09/28 19:26:28 by k                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+void	ft_number(int number, int *len)
+{
+	if ( number == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+			(len) += 11;
+			return ;
+	}
+	if (number < 0)
+	{
+		ft_putcharacter_len('-', len);
+		ft_number(number * -1, len);
+	}
+	
+}
