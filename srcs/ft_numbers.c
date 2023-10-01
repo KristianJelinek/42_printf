@@ -6,7 +6,7 @@
 /*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 07:58:43 by k                 #+#    #+#             */
-/*   Updated: 2023/10/01 17:32:57 by k                ###   ########.fr       */
+/*   Updated: 2023/10/01 19:37:01 by k                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,35 @@ void	ft_pointer(size_t ptr, int *len)
 	}
 }
 
+void	ft_hexadecimal(unsigned int x, int *len, char x_or_x)
+{
+	char	str[25];
+	char	*base_char;
+	int		i;
+
+	if (x_or_x == 'X')
+		base_char = "0123456789ABCDEF";
+	else
+		base_char = "0123456789abcdef";
+	i = 0;
+	if (x == 0)
+	{
+		ft_putcharacter_len('0', len);
+		return;
+	}
+	while (x != 0)
+	{
+		str[i] = base_char[x % 16];
+		x = x / 16;
+		i++;
+	}
+	while (i--)
+		ft_putcharacter_len(str[i], len);
+}
+
+void	ft_unsigned_int(unsigned int u, int *len)
+{
+	if (u >= 10)
+		ft_unsigned_int(u / 10, len);
+		ft_putcharacter_len(u % 10 + '0', len);
+}
