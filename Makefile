@@ -6,14 +6,14 @@
 #    By: k <k@student.42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:51:21 by k                 #+#    #+#              #
-#    Updated: 2023/09/28 19:05:42 by k                ###   ########.fr        #
+#    Updated: 2023/10/01 16:41:40 by k                ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
 SRCS	= ./srcs/ft_printf.c \
-	   	./srcs/ft_numbers.c \
+		./srcs/ft_numbers.c \
 		./srcs/ft_words.c \
 
 OBJS	= $(SRCS:.c=.o)
@@ -26,14 +26,17 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all:	$(NAME)
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re:			fclean all
 
