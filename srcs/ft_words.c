@@ -6,9 +6,11 @@
 /*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:48:23 by k                 #+#    #+#             */
-/*   Updated: 2023/10/02 11:28:31 by k                ###   ########.fr       */
+/*   Updated: 2023/10/02 14:48:05 by k                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/ft_printf.h"
 
 void	ft_putcharacter_len(char character, int *len)
 {
@@ -29,7 +31,7 @@ void	ft_string(char *args, int *len)
 	}
 	while (args[i] != '\0')
 	{
-		ft_ft_putchar_len(args[i], len);
+		ft_putcharacter_len(args[i], len);
 		i++;
 	}
 }

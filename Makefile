@@ -6,7 +6,7 @@
 #    By: k <k@student.42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:51:21 by k                 #+#    #+#              #
-#    Updated: 2023/10/01 16:41:40 by k                ###   ########.fr        #
+#    Updated: 2023/10/02 14:26:54 by k                ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= libftprintf.a
 
 SRCS	= ./srcs/ft_printf.c \
 		./srcs/ft_numbers.c \
-		./srcs/ft_words.c \
+		./srcs/ft_words.c 
 
 OBJS	= $(SRCS:.c=.o)
 

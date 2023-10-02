@@ -6,18 +6,17 @@
 /*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:40:18 by k                 #+#    #+#             */
-/*   Updated: 2023/10/02 11:29:29 by k                ###   ########.fr       */
+/*   Updated: 2023/10/02 14:31:53 by k                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-
 # include <unistd.h>
 # include <stdarg.h>
-# include <stddef.h>
 # include <stdlib.h>
+# include <stddef.h>
 
 
 void			ft_putcharacter_len(char character, int *len);
