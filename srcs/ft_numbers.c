@@ -6,7 +6,7 @@
 /*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 07:58:43 by k                 #+#    #+#             */
-/*   Updated: 2023/10/02 16:38:05 by k                ###   ########.fr       */
+/*   Updated: 2023/10/05 15:00:24 by k                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_number(int number, int *len)
 {
-	if ( number == -2147483648)
+	if (number == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-			(len) += 11;
-			return ;
+		(*len) += 11;
+		return;
 	}
 	if (number < 0)
 	{
@@ -28,21 +28,17 @@ void	ft_number(int number, int *len)
 	if (number == 0)
 	{
 		ft_putcharacter_len('0', len);
+		return;
 	}
-	else
-	{
-	if (number <= 9)
-		{
-			ft_putcharacter_len(number + '0', len);
+		int	numbers = number % 10;
+		int	new_num = number / 10;
+		
+	if (new_num > 0)
+    	{
+			ft_number(new_num, len);
 		}
-		else
-		{
-			ft_number(number / 10, len);
-			ft_putcharacter_len(number % 10 + '0', len);
-		}
-	}
+    	ft_putcharacter_len(numbers + '0', len);
 }
-
 void	ft_pointer(size_t ptr, int *len)
 {
 	char	str[25];
