@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_words.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
+/*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:48:23 by k                 #+#    #+#             */
-/*   Updated: 2023/10/02 14:48:05 by k                ###   ########.fr       */
+/*   Updated: 2023/12/04 08:35:59 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_putcharacter_len(char character, int *len)
 	write(1, &character, 1);
 	(*len)++;
 }
-
 void	ft_string(char *args, int *len)
 {
 	size_t	i;

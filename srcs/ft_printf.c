@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: k <k@student.42.fr>                        +#+  +:+       +#+        */
+/*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:05:57 by k                 #+#    #+#             */
-/*   Updated: 2023/10/02 15:39:31 by k                ###   ########.fr       */
+/*   Updated: 2023/12/04 08:35:42 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static	void	ft_printf_check(char s, va_list *args, int *len, int *i)
 	else
 			(*i)--;
 }
-
 int	ft_printf(const char *string, ...)
 {
 	va_list	args;
