@@ -15,30 +15,31 @@
 static	void	ft_printf_check(char s, va_list *args, int *len, int *i)
 {
 	if (s == 's')
-			ft_string(va_arg(*args, char *), len);
+		ft_string(va_arg(*args, char *), len);
 	else if (s == 'd' || s == 'i')
-			ft_number(va_arg(*args, int), len);
+		ft_number(va_arg(*args, int), len);
 	else if (s == 'u')
-			ft_unsigned_int(va_arg(*args, unsigned int), len);
+		ft_unsigned_int(va_arg(*args, unsigned int), len);
 	else if (s == 'x')
-			ft_hexadecimal(va_arg(*args, unsigned int), len, 'x');
+		ft_hexadecimal(va_arg(*args, unsigned int), len, 'x');
 	else if (s == 'X')
-			ft_hexadecimal(va_arg(*args, unsigned int), len, 'X');
+		ft_hexadecimal(va_arg(*args, unsigned int), len, 'X');
 	else if (s == 'p')
-			ft_pointer(va_arg(*args, size_t), len);
+		ft_pointer(va_arg(*args, size_t), len);
 	else if (s == 'c')
-			ft_putcharacter_len(va_arg(*args, int), len);
+		ft_putcharacter_len(va_arg(*args, int), len);
 	else if (s == '%')
-			ft_putcharacter_len('%', len);
+		ft_putcharacter_len('%', len);
 	else
-			(*i)--;
+		(*i)--;
 }
+
 int	ft_printf(const char *string, ...)
 {
 	va_list	args;
-	int	i;
-	int	len;
-	
+	int		i;
+	int		len;
+
 	i = 0;
 	len = 0;
 	va_start(args, string);
@@ -57,5 +58,5 @@ int	ft_printf(const char *string, ...)
 		}
 	}
 	va_end(args);
-	return(len);
+	return (len);
 }
