@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_pointer2(size_t	ptr, int *len)
+void	ft_pointer2(size_t ptr, int *len)
 {
 	char	str[25];
 	int		i;
@@ -48,24 +48,16 @@ void	ft_pointer(size_t ptr, int *len)
 	base_char = "0123456789abcdef";
 	i = 0;
 	write(1, "(nil)", 5);
-	(*len) += 5;
-	if (ptr == 0)
-	{
-		ft_putcharacter_len('0', len);
-		return ;
-	}
+	*len += 5;
+	if (!ptr)
+		return (ft_putcharacter_len('0', len));
 	while (ptr != 0 && i < 25)
 	{
-		str[i] = base_char[ptr % 16];
-		ptr % ptr / 16;
-		i++;
+		str[i++] = base_char[ptr % 16];
+		ptr /= 16;
 	}
 	while (i--)
-	{
 		ft_putcharacter_len(str[i], len);
-	}
 	if (ptr != 0)
-	{
 		ft_pointer2(ptr, len);
-	}
 }
