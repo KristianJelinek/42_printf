@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 07:58:43 by k                 #+#    #+#             */
-/*   Updated: 2023/12/04 08:35:29 by kjelinek         ###   ########.fr       */
+/*   Created: 2023/12/10 15:40:13 by kjelinek          #+#    #+#             */
+/*   Updated: 2023/12/11 16:30:50 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,49 @@
 
 void	ft_number(int number, int *len)
 {
-	int	numbers;
-	int	new_num;
+	int	numbers;//Deklarace promenne
+	int	new_num;//Deklarace promenne
 
-	if (number == -2147483648)
+	if (number == -2147483648)//Podminka pro zvlastni pripad nejmensi mozne hodnoty
 	{
-		write(1, "-2147483648", 11);
-		(*len) += 11;
+		write(1, "-2147483648", 11);//Vypis retezce na standardni vystup a aktual. delky 'len' o 11 
+		(*len) += 11;//Aktualizace delky vstupu o 11
 		return ;
 	}
-	if (number < 0)
+	if (number < 0)//Podminka pro zpracovani zapornych cisel
 	{
-		ft_putcharacter_len('-', len);
+		ft_putcharacter_len('-', len);//Vypis minusoveho znamenka a aktual. delky 'len'
 		number = -number;
 	}
-	if (number == 0)
+	if (number == 0)//Podm. pro zprac. nuly
 	{
-		ft_putcharacter_len('0', len);
+		ft_putcharacter_len('0', len);//Vypis cislice '0' a aktual. delky 'len'
 		return ;
 	}
-	numbers = number % 10;
-	new_num = number / 10;
-	if (new_num > 0)
+	numbers = number % 10;//Ziskani posledni cislice
+	new_num = number / 10;//Ziskani zbyku cisla po odstraneni posledni cislice
+	if (new_num > 0)//Rekurzivni volani funkce pro zpracovani zbyvajicich cislic, pokdu existuji
 	{
 		ft_number(new_num, len);
 	}
-	ft_putcharacter_len(numbers + '0', len);
+	ft_putcharacter_len(numbers + '0', len);//Vypis aktualni cislice a aktual. delky 'len'
 }
 
 void	ft_unsigned_int(unsigned int u, int *len)
 {
-	unsigned int	numbers;
-	unsigned int	new_num;
+	unsigned int	numbers;//Deklarace promenne
+	unsigned int	new_num;//Deklarace promenne
 
-	if (u == 0)
+	if (u == 0)//Stejne
 	{
-		ft_putcharacter_len('0', len);
+		ft_putcharacter_len('0', len);//Stejne 
 		return ;
 	}
-	numbers = u % 10;
-	new_num = u / 10;
-	if (new_num > 0)
+	numbers = u % 10;//Stejne
+	new_num = u / 10;//Stejne
+	if (new_num > 0)//Stejne
 	{
 		ft_unsigned_int(new_num, len);
 	}
-	ft_putcharacter_len(numbers + '0', len);
+	ft_putcharacter_len(numbers + '0', len);//Stejne
 }
