@@ -12,52 +12,65 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_pointer2(size_t ptr, int *len)
+void ft_pointer2(size_t ptr, int *len)
 {
-	char	str[25];
-	int		i;
-	char	*base_char;
+    char	str[25];
+    int		i;
+    char	*base_char;
 
-	base_char = "0123456789abcdef";
-	i = 0;
-	write(1, "0x", 2);
-	(*len) += 2;
-	if (ptr == 0)
-	{
-		ft_putcharacter_len('0', len);
-		return ;
-	}
-	while (ptr != 0 && i < 25)
-	{
-		str[i] = base_char[ptr % 16];
-		ptr = ptr / 16;
-		i++;
-	}
-	while (i--)
-	{
-		ft_putcharacter_len(str[i], len);
-	}
+    // Pole znaků pro reprezentaci hexadecimálních číslic
+    base_char = "0123456789abcdef";
+    // Inicializace indexu pro pole znaků
+    i = 0;
+    // Výpis "0x" a aktualizace délky
+    write(1, "0x", 2);
+    (*len) += 2;
+    // Zvláštní případ pro nulu
+    if (ptr == 0)
+    {
+        ft_putcharacter_len('0', len);
+        return;
+    }
+    // Převod na hexadecimální reprezentaci
+    while (ptr != 0 && i < 25)
+    {
+        str[i] = base_char[ptr % 16]; // Získání hexadecimální číslice
+        ptr = ptr / 16; // Získání další části čísla
+        i++;
+    }
+    // Výpis hexadecimální reprezentace
+    while (i--)
+    {
+        ft_putcharacter_len(str[i], len); // Výpis aktuální číslice a aktualizace délky
+    }
 }
 
-void	ft_pointer(size_t ptr, int *len)
+void ft_pointer(size_t ptr, int *len)
 {
-	char	str[25];
-	int		i;
-	char	*base_char;
+    char str[25];
+    int i;
+    char *base_char;
+    // Pole znaků pro reprezentaci hexadecimálních číslic
+    base_char = "0123456789abcdef";
 
-	base_char = "0123456789abcdef";
-	i = 0;
-	write(1, "(nil)", 5);
-	*len += 5;
-	if (!ptr)
-		return (ft_putcharacter_len('0', len));
-	while (ptr != 0 && i < 25)
-	{
-		str[i++] = base_char[ptr % 16];
-		ptr /= 16;
-	}
-	while (i--)
-		ft_putcharacter_len(str[i], len);
-	if (ptr != 0)
-		ft_pointer2(ptr, len);
+    // Inicializace indexu pro pole znaků
+    i = 0;
+    // Výpis "(nil)" a aktualizace délky
+    write(1, "(nil)", 5);
+    *len += 5;
+    // Zvláštní případ pro nulový ukazatel
+    if (!ptr)
+        return (ft_putcharacter_len('0', len));
+    // Převod na hexadecimální reprezentaci
+    while (ptr != 0 && i < 25)
+    {
+        str[i++] = base_char[ptr % 16]; // Získání hexadecimální číslice
+        ptr /= 16; // Získání další části čísla
+    }
+    // Výpis hexadecimální reprezentace
+    while (i--)
+        ft_putcharacter_len(str[i], len); // Výpis aktuální číslice a aktualizace délky
+    // Pokud zbyly další číslice, zavoláme druhou funkci pro další převod
+    if (ptr != 0)
+        ft_pointer2(ptr, len);
 }
