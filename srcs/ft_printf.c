@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 11:05:57 by k                 #+#    #+#             */
-/*   Updated: 2023/12/14 11:08:46 by kjelinek         ###   ########.fr       */
+/*   Created: 2023/12/10 14:34:32 by kjelinek          #+#    #+#             */
+/*   Updated: 2023/12/14 16:44:44 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_printf_check(char s, va_list *args, int *len, int *i)
+static	void	ft_printf_check(char s, va_list *args, int *len, int *i)
 {
-	// Rozpoznání formátovacího specifikátoru a volání odpovídající funkce pro zpracování
 	if (s == 's')
 		ft_string(va_arg(*args, char *), len);
 	else if (s == 'd' || s == 'i')
@@ -37,31 +36,27 @@ static void	ft_printf_check(char s, va_list *args, int *len, int *i)
 
 int	ft_printf(const char *string, ...)
 {
-	va_list args;
-	int 	i;
-	int 	len;
-	// Inicializace indexu i a délky výstupu
+	va_list	args;
+	int		i;
+	int		len;
+
 	i = 0;
 	len = 0;
-	// Inicializace proměnné argumentů
 	va_start(args, string);
-	// Zpracování řetězce formátu
 	while (string[i] != '\0')
 	{
 		if (string[i] == '%')
 		{
-			i++; // Přeskočení znaku '%'
-			ft_printf_check(string[i], &args, &len, &i); // Zpracování formátovacího specifikátoru
-			i++; // Přeskočení zpracovaného specifikátoru
+			i++;
+			ft_printf_check(string[i], &args, &len, &i);
+			i++;
 		}
 		else
 		{
-			ft_putcharacter_len((char)string[i], &len); // Výpis běžného znaku
-			i++; // Přeskočení běžného znaku
+			ft_putcharacter_len((char)string[i], &len);
+			i++;
 		}
 	}
-	// Ukončení práce s proměnnými argumenty
 	va_end(args);
-	// Vrácení celkové délky vytvořeného textu
 	return (len);
 }
