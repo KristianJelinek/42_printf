@@ -6,7 +6,7 @@
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:57:59 by kjelinek          #+#    #+#             */
-/*   Updated: 2023/12/08 10:10:08 by kjelinek         ###   ########.fr       */
+/*   Updated: 2023/12/14 09:23:23 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void ft_pointer(size_t ptr, int *len)
     char *base_char;
     // Pole znaků pro reprezentaci hexadecimálních číslic
     base_char = "0123456789abcdef";
-
     // Inicializace indexu pro pole znaků
     i = 0;
     // Výpis "(nil)" a aktualizace délky
