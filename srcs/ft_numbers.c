@@ -6,7 +6,7 @@
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:13 by kjelinek          #+#    #+#             */
-/*   Updated: 2023/12/11 16:30:50 by kjelinek         ###   ########.fr       */
+/*   Updated: 2023/12/14 08:52:37 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	ft_number(int number, int *len)
 
 	if (number == -2147483648)//Podminka pro zvlastni pripad nejmensi mozne hodnoty
 	{
-		write(1, "-2147483648", 11);//Vypis retezce na standardni vystup a aktual. delky 'len' o 11 
-		(*len) += 11;//Aktualizace delky vstupu o 11
+		(*len) += write(1, "-2147483648", 11);//Vypis retezce na standardni vystup a aktual. delky 'len' o 11 
 		return ;
 	}
 	if (number < 0)//Podminka pro zpracovani zapornych cisel
@@ -36,9 +35,7 @@ void	ft_number(int number, int *len)
 	numbers = number % 10;//Ziskani posledni cislice
 	new_num = number / 10;//Ziskani zbyku cisla po odstraneni posledni cislice
 	if (new_num > 0)//Rekurzivni volani funkce pro zpracovani zbyvajicich cislic, pokdu existuji
-	{
-		ft_number(new_num, len);
-	}
+        ft_number(new_num, len);
 	ft_putcharacter_len(numbers + '0', len);//Vypis aktualni cislice a aktual. delky 'len'
 }
 
