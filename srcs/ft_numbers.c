@@ -6,7 +6,7 @@
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:13 by kjelinek          #+#    #+#             */
-/*   Updated: 2023/12/14 10:14:02 by kjelinek         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:07:49 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,46 @@
 
 void	ft_number(int number, int *len)
 {
-	int	numbers;//Deklarace promenne
-	int	new_num;//Deklarace promenne
+	int	numbers;
+	int	new_num;
 
-	if (number == -2147483648)//Podminka pro zvlastni pripad nejmensi mozne hodnoty
+	if (number == -2147483648)
 	{
-		(*len) += write(1, "-2147483648", 11);//Vypis retezce na standardni vystup a aktual. delky 'len' o 11 
+		(*len) += write(1, "-2147483648", 11);
 		return ;
 	}
-	if (number < 0)//Podminka pro zpracovani zapornych cisel
+	if (number < 0)
 	{
-		ft_putcharacter_len('-', len);//Vypis minusoveho znamenka a aktual. delky 'len'
+		ft_putcharacter_len('-', len);
 		number = -number;
 	}
-	if (number == 0)//Podm. pro zprac. nuly
+	if (number == 0)
 	{
-		ft_putcharacter_len('0', len);//Vypis cislice '0' a aktual. delky 'len'
+		ft_putcharacter_len('0', len);
 		return ;
 	}
-	numbers = number % 10;//Ziskani posledni cislice
-	new_num = number / 10;//Ziskani zbyku cisla po odstraneni posledni cislice
-	if (new_num > 0)//Rekurzivni volani funkce pro zpracovani zbyvajicich cislic, pokdu existuji
+	numbers = number % 10;
+	new_num = number / 10;
+	if (new_num > 0)
 		ft_number(new_num, len);
-	ft_putcharacter_len(numbers + '0', len);//Vypis aktualni cislice a aktual. delky 'len'
+	ft_putcharacter_len(numbers + '0', len);
 }
 
 void	ft_unsigned_int(unsigned int u, int *len)
 {
-	unsigned int	numbers;//Deklarace promenne
-	unsigned int	new_num;//Deklarace promenne
+	unsigned int	numbers;
+	unsigned int	new_num;
 
-	if (u == 0)//Stejne
+	if (u == 0)
 	{
-		ft_putcharacter_len('0', len);//Stejne 
+		ft_putcharacter_len('0', len);
 		return ;
 	}
-	numbers = u % 10;//Stejne
-	new_num = u / 10;//Stejne
-	if (new_num > 0)//Stejne
+	numbers = u % 10;
+	new_num = u / 10;
+	if (new_num > 0)
 	{
 		ft_unsigned_int(new_num, len);
 	}
-	ft_putcharacter_len(numbers + '0', len);//Stejne
+	ft_putcharacter_len(numbers + '0', len);
 }
