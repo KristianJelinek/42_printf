@@ -6,7 +6,7 @@
 /*   By: kjelinek < kjelinek@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:13 by kjelinek          #+#    #+#             */
-/*   Updated: 2023/12/14 08:52:37 by kjelinek         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:14:02 by kjelinek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_number(int number, int *len)
 	numbers = number % 10;//Ziskani posledni cislice
 	new_num = number / 10;//Ziskani zbyku cisla po odstraneni posledni cislice
 	if (new_num > 0)//Rekurzivni volani funkce pro zpracovani zbyvajicich cislic, pokdu existuji
-        ft_number(new_num, len);
+		ft_number(new_num, len);
 	ft_putcharacter_len(numbers + '0', len);//Vypis aktualni cislice a aktual. delky 'len'
 }
 
